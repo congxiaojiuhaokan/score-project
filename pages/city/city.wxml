@@ -1,0 +1,124 @@
+<!-- city.wxml -->
+<view class="city-container">
+  <!-- 顶部搜索框 -->
+  <view class="search-header">
+    <input 
+      class="search-input" 
+      placeholder="搜索城市名称或拼音" 
+      value="{{searchKeyword}}" 
+      bindinput="onSearchInput"
+      focus="true"
+    />
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-wrapper">
+    <!-- 左侧字母导航 -->
+    <view class="letter-nav">
+      <view 
+        class="letter-item" 
+        wx:for="{{letters}}" 
+        wx:key="*this"
+        bindtap="onLetterTap"
+        data-letter="{{item}}"
+      >
+        {{item}}
+      </view>
+    </view>
+
+    <!-- 右侧城市列表 -->
+    <scroll-view 
+      class="city-scroll-view" 
+      scroll-y="true"
+      enable-back-to-top="true"
+      scroll-into-view="{{scrollToView}}"
+      scroll-with-animation="true"
+    >
+      <!-- 搜索结果 -->
+      <view class="search-result" wx:if="{{showSearchResult}}">
+        <view class="section-title">搜索结果</view>
+        <view class="city-list">
+          <view 
+            class="city-item" 
+            wx:for="{{searchResult}}" 
+            wx:key="*this"
+            bindtap="onSelectCity"
+            data-city="{{item}}"
+          >
+            {{item}}
+          </view>
+          <view wx:if="{{searchResult.length === 0}}" class="no-result">
+            暂无匹配城市
+          </view>
+        </view>
+      </view>
+
+      <!-- 城市列表（非搜索状态下显示） -->
+      <view class="city-content" wx:else>
+        <!-- 当前城市和历史访问城市合并 -->
+        <view class="city-section" wx:if="{{currentCity || historyCities.length > 0}}">
+          <view class="section-title">当前/历史城市</view>
+          <view class="city-grid">
+            <!-- 当前城市 -->
+            <view 
+              class="city-grid-item current-city" 
+              wx:if="{{currentCity}}"
+              bindtap="onSelectCity"
+              data-city="{{currentCity}}"
+            >
+              <text class="location-icon"></text>
+              {{currentCity}}
+            </view>
+            
+            <!-- 历史访问城市 -->
+            <view 
+              class="city-grid-item" 
+              wx:for="{{historyCities}}" 
+              wx:key="*this"
+              bindtap="onSelectCity"
+              data-city="{{item}}"
+            >
+              {{item}}
+            </view>
+          </view>
+        </view>
+
+        <!-- 热门城市 -->
+        <view class="city-section">
+          <view class="section-title">热门城市</view>
+          <view class="city-grid">
+            <view 
+              class="city-grid-item" 
+              wx:for="{{hotCities}}" 
+              wx:key="*this"
+              bindtap="onSelectCity"
+              data-city="{{item}}"
+            >
+              {{item}}
+            </view>
+          </view>
+        </view>
+
+        <!-- 按首字母排序的城市 -->
+        <view class="city-section" wx:for="{{letters}}" wx:key="*this" wx:for-item="letter">
+          <view wx:if="{{cityList[letter].length > 0}}">
+            <!-- 字母标题 -->
+            <view class="letter-title" id="letter-{{letter}}">{{letter}}</view>
+            <!-- 城市列表 - 使用网格布局，与热门城市样式一致 -->
+            <view class="city-grid">
+              <view 
+                class="city-grid-item" 
+                wx:for="{{cityList[letter]}}" 
+                wx:key="*this"
+                bindtap="onSelectCity"
+                data-city="{{item}}"
+              >
+                {{item}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

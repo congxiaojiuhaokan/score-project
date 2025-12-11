@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/city/city",
+    "pages/score/score",
+    "pages/message/message",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#f8f9fa",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "评分项目",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#1989fa",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/score/score",
+        "text": "评分"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+ 
+  "sitemapLocation": "sitemap.json"
+}

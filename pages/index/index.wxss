@@ -1,0 +1,315 @@
+/* index.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 搜索框样式 */
+.search-container {
+  width: 100%;
+  margin-bottom: 20rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 16rpx 20rpx;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.search-placeholder {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 筛选栏样式 */
+.filter-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* 左侧排序组 */
+.sort-group {
+  display: flex;
+  align-items: center;
+}
+
+.sort-item {
+  margin-right: 40rpx;
+  padding: 8rpx 0;
+  position: relative;
+}
+
+.sort-item.active .sort-text {
+  color: #1989fa;
+  font-weight: 600;
+}
+
+.sort-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4rpx;
+  background-color: #1989fa;
+  border-radius: 2rpx;
+}
+
+.sort-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 右侧筛选组 */
+.filter-group {
+  display: flex;
+  align-items: center;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  margin-left: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.filter-text {
+  margin-right: 6rpx;
+}
+
+.filter-arrow {
+  font-size: 20rpx;
+  color: #999;
+}
+
+/* 卡片列表样式 */
+.card-list {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card-item {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* 公司头部样式 */
+.company-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.company-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.hot-score {
+  display: flex;
+  align-items: center;
+}
+
+.hot-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.hot-text {
+  font-size: 24rpx;
+  color: #ff6b6b;
+}
+
+/* 公司描述样式 */
+.company-description {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 40rpx;
+  margin-bottom: 20rpx;
+  /* 设置最大三行，超过部分显示省略号 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 标签样式 */
+.company-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20rpx;
+}
+
+.tag {
+  background-color: #f0f9ff;
+  color: #1989fa;
+  padding: 8rpx 16rpx;
+  border-radius: 16rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #bae6fd;
+  margin-right: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.tag-text {
+  display: inline-block;
+}
+
+/* 用户信息区域样式 */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 10rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 20rpx;
+}
+
+.user-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 16rpx;
+  background-color: #f0f0f0;
+}
+
+.user-name {
+  font-size: 26rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+/* 公司名称和地区样式 */
+.region {
+  font-size: 24rpx;
+  color: #666;
+  background-color: #f0f0f0;
+  padding: 4rpx 12rpx;
+  border-radius: 12rpx;
+}
+
+/* 互动按钮区域样式 */
+.interaction-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+  background-color: #fff;
+}
+
+.interaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 12rpx 20rpx;
+  border-radius: 12rpx;
+  cursor: pointer;
+  width: 100rpx;
+  transition: all 0.3s ease;
+}
+
+.interaction-item:active {
+  background-color: #f5f5f5;
+  transform: scale(0.95);
+}
+
+.interaction-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.interaction-count {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* 点赞按钮样式 */
+.interaction-item:nth-child(1) .interaction-count {
+  color: #ff6b6b;
+}
+
+/* 踩按钮样式 */
+.interaction-item:nth-child(2) .interaction-count {
+  color: #4ecdc4;
+}
+
+/* 评论按钮样式 */
+.interaction-item:nth-child(3) .interaction-count {
+  color: #45b7d1;
+}
+
+/* 分享按钮样式 */
+.interaction-item:nth-child(4) .interaction-count {
+  color: #96ceb4;
+}
+
+/* 点赞和踩图标高亮样式 */
+.interaction-icon {
+  /* 保持图标缩放效果 */
+  transition: transform 0.3s ease;
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+}
+
+/* 点赞高亮 */
+.interaction-icon.liked {
+  /* 点赞高亮效果 */
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* 踩高亮 */
+.interaction-icon.disliked {
+  /* 踩高亮效果 */
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* 未高亮状态 */
+.interaction-icon {
+  opacity: 0.6;
+}
+
+.interaction-item:active .interaction-icon {
+  transform: scale(0.9);
+}
+
+/* 评论和分享按钮图标 */
+.interaction-item:nth-child(3) .interaction-icon,
+.interaction-item:nth-child(4) .interaction-icon {
+  opacity: 0.8;
+}

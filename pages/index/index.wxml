@@ -1,0 +1,103 @@
+<view class="container" style="background-color: #f8f9fa;">
+  <!-- 搜索框 -->
+  <view class="search-container" bindtap="onSearchTap">
+    <view class="search-box">
+      <text class="search-placeholder">搜索...</text>
+    </view>
+  </view>
+  
+  <!-- 筛选栏 -->
+  <view class="filter-bar">
+    <!-- 左侧：最新/最热切换 -->
+    <view class="sort-group">
+      <view class="sort-item {{activeSort === 'newest' ? 'active' : ''}}" bindtap="onSortTap" data-sort="newest">
+        <text class="sort-text">最新</text>
+      </view>
+      <view class="sort-item {{activeSort === 'hottest' ? 'active' : ''}}" bindtap="onSortTap" data-sort="hottest">
+        <text class="sort-text">最热</text>
+      </view>
+    </view>
+    
+    <!-- 右侧：城市/筛选 -->
+    <view class="filter-group">
+      <view class="filter-item" bindtap="onCityTap">
+        <text class="filter-text">{{selectedCity || '城市'}}</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+      <view class="filter-item" bindtap="onFilterTap">
+        <text class="filter-text">筛选</text>
+        <text class="filter-arrow">▼</text>
+      </view>
+    </view>
+  </view>
+  
+  <!-- 卡片列表 -->
+  <view class="card-list">
+    <view class="card-item" wx:for="{{companyList}}" wx:key="id">
+      <!-- 公司名称和地区 -->
+      <view class="company-header">
+        <text class="company-name">{{item.name}}</text>
+        <text class="region">{{item.region}}</text>
+      </view>
+      
+      <!-- 公司描述 -->
+      <view class="company-description">{{item.description}}</view>
+      
+      <!-- 公司标签 -->
+      <view class="company-tags">
+        <view class="tag" wx:for="{{item.tags}}" wx:key="*this" wx:for-item="tag">
+          <text class="tag-text">{{tag}}</text>
+        </view>
+      </view>
+      
+      <!-- 用户信息区域 -->
+      <view class="user-info">
+        <image class="user-avatar" src="{{item.user.avatar}}"></image>
+        <text class="user-name">{{item.user.name}}</text>
+      </view>
+      
+      <!-- 互动按钮区域 -->
+      <view class="interaction-bar">
+        <!-- 点赞按钮 -->
+        <view class="interaction-item" bindtap="onLikeTap" data-id="{{item.id}}">
+          <image 
+            src="/images/zan.svg" 
+            class="interaction-icon {{item.isLiked ? 'liked' : ''}}" 
+            mode="aspectFit"
+          ></image>
+          <text class="interaction-count">{{item.likeCount || 0}}</text>
+        </view>
+        
+        <!-- 踩按钮 -->
+        <view class="interaction-item" bindtap="onDislikeTap" data-id="{{item.id}}">
+          <image 
+            src="/images/cai.svg" 
+            class="interaction-icon {{item.isDisliked ? 'disliked' : ''}}" 
+            mode="aspectFit"
+          ></image>
+          <text class="interaction-count">{{item.dislikeCount || 0}}</text>
+        </view>
+        
+        <!-- 评论按钮 -->
+        <view class="interaction-item" bindtap="onCommentTap" data-id="{{item.id}}">
+          <image 
+            src="/images/pinglun.svg" 
+            class="interaction-icon" 
+            mode="aspectFit"
+          ></image>
+          <text class="interaction-count">{{item.commentCount || 0}}</text>
+        </view>
+        
+        <!-- 分享按钮 -->
+        <view class="interaction-item" bindtap="onShareTap" data-id="{{item.id}}">
+          <image 
+            src="/images/fenxiang.svg" 
+            class="interaction-icon" 
+            mode="aspectFit"
+          ></image>
+          <text class="interaction-count">{{item.shareCount || 0}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

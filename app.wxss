@@ -1,0 +1,29 @@
+/* app.wxss */
+/* 全局样式重置 */
+page {
+  background-color: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+}
+
+/* 浅色系主题色定义 */
+.container {
+  --primary-color: #1989fa;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #e9ecef;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --danger-color: #f5222d;
+}
